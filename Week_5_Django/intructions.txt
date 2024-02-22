@@ -6,3 +6,6 @@ add url pattern
 Put Pipe lines
 add templates in dir
 set index
+
+python3 -m env envname
+envname\Scripts\activate
