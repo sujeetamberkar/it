@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>templetIsWorking</title>
+  </head>
+  <body>
+    {% comment %} {{name}} is from {{place}} {% endcomment %}
+    <h1>Welcome to the Text analyser. Enter your text bellow</h1>
+  
+    <form action = "/analyze" method='get'>
+      <textarea name = 'text' style='width: 1069px; height: 288px;' ></textarea>
+      <br>
+      <input type="checkbox" name = "removepunc"> Remove Punctuations<br>
+
+      <button type = 'submit'>Analyse Text </button>
+      </form>
+  
+  </body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+
+<script>
+    $(document).ready(function(){
+
+        $('#submitBtn').click(function(event){
+        event.preventDefault(); // Prevent form submission
+        let namevar = $("#namevar").val();
+        let rollvar = $("#roll").val();
+        let id_satus = $('input[name="idCard"]:checked').val(); // Radio 
+
+        let favcolor = $('#favcoolor').val(); // Drop Down 
+        let checkpicvar = $("#options").is(":checked"); // Check box 
+
+        console.log(namevar);
+        console.log(rollvar);
+        console.log(id_satus);
+        console.log(favcolor);
+        console.log(checkpicvar);
+
+
+
+        })
+        
+        
+    })
+</script>
+<body>
+    
+    <div class="container-fluid" >
+        <h1>Student Bio Data</h1>
+    <form>
+        <label for="inputName">Enter your Name:</label>
+        <input type="text" id ="namevar" name="namevar">
+
+        <label for="inputroll">Enter your roll Number</label>
+        <input type="number" name="roll" id="roll">
+        <br>
+
+        <table class="table table-dark table-striped" >
+            <thead>
+                <tr>
+                    <th>Document</th>
+                    <th>Issue Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ID Card </td>
+                    <td>
+                        <input type="radio" name="idCard" value = "1">
+                        <label for="idCard_yes">Yes</label>
+                        <input type="radio" name="idCard" value="0">
+                        <label for="idCard_yes">No</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <label for="favcoolor">Fav color</label>
+        <select name="favcoolor" id="favcoolor">
+            <option value="Red">Red</option>
+            <option value="Yello">Yellow</option>
+            <option value="Blue">Blue</option>
+            <option value="Green">Green</option>
+        </select>
+
+        <br>
+
+        <input type="checkbox" name="options" id="options" value="addone"> Add A default Picture <br>
+        <br>
+
+        <button id="submitBtn" class="btn btn-outline-dark"> Done </button>
+    </form>
+
+    </div>
+    
+
+    
+    
+</body>
+</html>

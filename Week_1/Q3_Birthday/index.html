@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .box{
+        display: flex;
+        flex-direction: row;
+        height: 80vh;
+        width: 100vw;
+        background-color: aqua;
+    }
+    .left{
+        /* display: flex;
+        flex-direction: column; */
+        width: 50%;
+        background-color: red;
+        height: 100%;
+    }
+
+    .right{
+        width: 50%;
+        background-color: whitesmoke;
+        height: 100%;
+        
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#submitbtn').click(function(event){
+            event.preventDefault(); // Prevent form submission
+            let colorvar = $('#color').val();
+            let fontvar = $('#font').val();
+            let bordervar = $('input[name="border"]:checked').val();
+            let checkpicvar = $("#options").is(":checked");
+            let message = $("#message").val();
+            
+            console.log(colorvar);
+            console.log(fontvar);
+            console.log(bordervar);
+            console.log(checkpicvar);
+            console.log(message);
+            $('.right').html('<h1>'+ message+ '</h1>');
+            $('.right').css('background-color',colorvar);
+            $('.right').css('font-family',fontvar);
+            $('.right').css('border',bordervar);
+
+            if (checkpicvar==true)
+            {
+                $('.right').append('<img src="./Cake.png" alt="" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">');
+            }
+
+           
+
+
+
+
+        });
+    });
+</script>
+<body>
+    <div class="container">
+        <div class="box">
+            
+            <div class="left">
+                <form id = "inputForm">
+
+                    <label for="color">Color</label>
+                    <select name="color" id="color">
+                    <option value="#EDD000">Yellow</option>
+                    <option value="#109210">Green</option>
+                    </select>
+                    <label for="font">Choose a Font</label>
+                    <select name="font" id="font">
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    </select>
+                    <br>
+
+                    <p>Choose a border style</p>
+                    <input type="radio" id="borderNone" name="border" value="None"> 
+                    <label for="borderNone">None</label><br>
+                    <input type="radio" id="borderDouble" name="border" value="Double"> 
+                    <label for="borderDouble">Double</label><br>
+                    <input type="radio" id="borderSolid" name="border" value="Solid"> 
+                    <label for="borderSolid">Solid</label>
+                    <br>
+
+                    <input type="checkbox" name="options" id="options" value="addone"> Add A default Picture <br>
+                    <br>
+                    <p>Enter the greeting text below: </p>
+                    <input type="text" name="message" id="message">
+                    <br>
+                    <button type="submit" id = "submitbtn">Update</button>
+                    
+                    
+                </form>
+
+            </div>
+            <div class="right">
+
+            </div>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>

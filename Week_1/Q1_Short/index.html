@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Small Box Animation</title>
+<style>
+    /* CSS to style the box */
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Make the container full height of the viewport */
+    }
+    .small-box {
+        width: 100px; /* Set width */
+        height: 100px; /* Set height */
+        background-color: #f0f0f0; /* Set background color */
+        border: 1px solid #ccc; /* Set border */
+        border-radius: 5px; /* Optional: Set border radius for rounded corners */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+        transition: transform 0.5s ease;
+         /* Smooth transition for the movement */
+    }
+    .button-container {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<!-- HTML code for the small box -->
+<div class="container">
+    <div class="small-box"> 
+        This is a small box.
+        <div class="button-container">
+            <button id="moveLeftBtn">Move Left</button>
+        </div>
+        
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // jQuery code to handle button click event
+        $("#moveLeftBtn").click(function(){
+            $(".small-box").css("transform", "translateX(-100px)"); // Move the small box to the left
+        });
+    });
+</script>
+
+</body>
+</html>

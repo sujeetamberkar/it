@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .box{
+        height: 200px;
+        width: 900px;
+        background-color: aqua;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#calculatorForm').submit(function(event){
+            event.preventDefault();
+
+            let num1 = parseFloat($('#number1').val());
+            let num2 = parseFloat($('#number2').val());
+            let oppinput = $('input[name="opp"]:checked').val();
+            let result = 0;
+            console.log(num1);
+            console.log(num2);
+            console.log(result);
+
+            if (oppinput === 'add')
+            {
+                result = num1 + num2;
+            }
+            else if (oppinput === 'mul')
+            {
+                result = num1 * num2;
+            }
+            else {
+                result = num1 - num2;
+            }
+
+
+            // Get the checked checkbox values
+        let checkedValues = $('input[name="options"]:checked').map(function() {
+            return this.value;
+        }).get();
+
+                
+            // Iterate over each checked value
+        checkedValues.forEach(function(value) {
+            if (value === 'addone') {
+                result += 1; // Add one if 'addone' is checked
+            } else if (value === "addtwo") {
+                result += 2; // Add two if 'addtwo' is checked
+            }
+        });
+
+
+            console.log(checkedValues)
+            $("#result").html("Result: "+ result);
+
+        })
+    })
+</script>
+<body>
+
+    <div class="container">
+        <div class="box">
+            <h1>Calculator</h1>
+            <form id = "calculatorForm" >
+                Enter first Number : <input type="number" id = "number1" placeholder="4"> 
+                Enter Second Number : <input type="number" id = "number2" placeholder="6">
+                <br>
+                <p>Opperations</p>
+                <input type="radio" name="opp" id="opp" value="add"> Addition
+                <input type="radio" name="opp" id="opp" value="sub"> Subtraction
+                <input type="radio" name="opp" id="opp" value="mul"> Multiplication
+                
+                <p>Add On </p>
+                <input type="checkbox" name="options" id="options" value="addone"> Add One <br>
+                <input type="checkbox" name="options" id="options" value="addtwo"> Add Two <br>
+                <button type="submit">Calculate</button>
+            </form>
+            <div id = "result"></div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

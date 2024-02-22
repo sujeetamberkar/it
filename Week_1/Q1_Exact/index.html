@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .small-box{
+        height: 100px;
+        width: 200px;
+        background-color: aqua;
+        position: relative;
+    }
+
+    tr:nth-child(even) { 
+            background-color: Lightgreen; 
+    } 
+    tr:nth-child(odd) { 
+            background-color: rebeccapurple; 
+        } 
+</style>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#moveleft").click(function(){
+            $(".small-box").animate({right: '100px'});
+        })
+    });
+</script>
+<body>
+
+    <div class="container">
+        <div class="small-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr NO </th>
+                        <th>Name</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sujeet</td>
+                        <td>Mumbai</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Abhishek</td>
+                        <td>Nagpur</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Anirudh</td>
+                        <td>Bokaro</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+
+            <img src="./image.jpg" alt="Image">
+
+            <div class="button-container">
+                <button id = "moveleft">Move Left</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
